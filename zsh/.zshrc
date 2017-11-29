@@ -179,3 +179,6 @@ ranger-cd() {
 zle -N ranger-cd
 bindkey '^o' ranger-cd
 source /home/narice/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+tmux
+tmux kill-session -a
