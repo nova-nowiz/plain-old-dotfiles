@@ -1,5 +1,6 @@
 #!/bin/sh 
 tmux new-session -c ~/Documents/code \; \
   send-keys 'vim' C-m \; \
-  split-window -h -p 15 \; \
+  split-window -h \; \
+  send-keys C-b ':rezise-pane -R -50' \; \
   select-pane -t 0\;

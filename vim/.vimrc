@@ -15,6 +15,7 @@ Plugin 'tomasr/molokai'
 Plugin 'vim-python/python-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'jacquesbh/vim-showmarks'
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'adelarsq/vim-matchit'
@@ -49,8 +50,10 @@ syntax enable
 " Global Setting
 " --------------------------------------------------------------------------------
 let python_highlight_all = 1
+set updatetime=250 
 set number
 set relativenumber
+map <f7> :DoShowMarks!<cr>
 
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
