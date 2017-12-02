@@ -14,6 +14,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
 Plugin 'vim-python/python-syntax'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'honza/vim-snippets'
+Plugin 'sirver/ultisnips'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jacquesbh/vim-showmarks'
 Plugin 'kien/ctrlp.vim'
@@ -54,6 +58,10 @@ set updatetime=250
 set number
 set relativenumber
 map <f7> :DoShowMarks!<cr>
+nnoremap <F4> :make<cr>
+let g:UltiSnipsExpandTrigger="²"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
