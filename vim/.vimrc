@@ -14,6 +14,7 @@ Plugin 'guyzmo/vim-etherpad'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-python/python-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'kmyk/sdl2.vim'
@@ -176,26 +177,6 @@ nmap n nzz
 nmap N Nzz
 nmap } }zz
 nmap { {zz
-
-inoremap {      {}<Left>
-inoremap {<CR>   <CR>{<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-inoremap        (  ()<Esc>i
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Esc>la" : ")"
-
-inoremap        [  []<Esc>i
-inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Esc>la" : "]"
-
-inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Esc>la" : "\'\'\<Esc>i"
-inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Esc>la" : "\"\"\<Esc>i"
-
-imap <leader>' '<ESC>i
-imap <leader>" "<ESC>i
-imap <leader>( (<ESC>i
-imap <leader>[ [<ESC>i
-imap <leader>{ {<ESC>i
 
 " ----------------------------------------------------------------------------------------------
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
