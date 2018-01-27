@@ -6,7 +6,7 @@ You need to have a terminal with 24 bit color support as well as confighuring tm
 You can run the vim-layout script (in the tmux folder) to run tmux with vim in the left (85%), and zsh in the right (15%)  
 you have access to a lot of plugins that i use, linked in the .vim folder. install vundle for a full support of my .vimrc and do a :PluginInstall to install all plugins.
 
-For windows with git bash installed (and vim as the edition program (ie. recommanded editor for git bash)):  
+For a windows .vimrc install with git bash installed (and vim as the edition program (ie. recommanded editor for git bash)):  
 git clone https://github.com/Narice/dotfiles/ ~  
 mv ~/dotfiles/vim/.virmc ~  
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim  
