@@ -9,8 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'FredKSchott/CoVim'
-Plugin 'guyzmo/vim-etherpad'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
@@ -51,28 +49,6 @@ syntax enable
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-
-" working together to make it better !
-
-" To connect to the pad at URI http://localhost:9001/p/test per default:
-let g:epad_host = "109.12.211.231" " Hostname to connect to
-let g:epad_port = "8555"      " Port to connect to
-let g:epad_path = "p/"        " URL Path to the pad
-let g:epad_pad = "game"       " Name of the pad to connect to
-
-" GUI feel
-let g:epad_updatetime = 250  " lower this for more realtime, higher this for less load
-
-" GUI look
-let g:epad_attributes = 0     " set to 1 to display attributes (works only with a font that)
-let g:epad_authors = 0        " set to 1 to display authors (works only in gui mode)
-
-" Enable verbosity
-let g:epad_verbose = 0        " set to 1 for INFO level, 2 for DEBUG level
-
-" COLORS !!!
-
 
 " Global Setting
 " --------------------------------------------------------------------------------
