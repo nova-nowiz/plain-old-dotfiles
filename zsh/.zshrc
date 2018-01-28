@@ -12,6 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -69,6 +70,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+alias vim="nvim"
+
+function chpwd() {
+    emulate -L zsh
+    ls -la
+}
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -179,3 +186,5 @@ ranger-cd() {
 zle -N ranger-cd
 bindkey '^o' ranger-cd
 source /home/narice/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
