@@ -9,32 +9,36 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'FredKSchott/CoVim'
-Plugin 'guyzmo/vim-etherpad'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tomasr/molokai'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mklabs/split-term.vim'
+
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-python/python-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'kmyk/sdl2.vim'
+Plugin 'pseewald/vim-anyfold'
+Plugin 'konfekt/fastfold'
+
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'sirver/ultisnips'
-Plugin 'vim-syntastic/syntastic'
+
 Plugin 'jacquesbh/vim-showmarks'
-Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'adelarsq/vim-matchit'
-Plugin 'valloric/youcompleteme'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-fugitive'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'powerline/powerline'
 Plugin 'powerline/fonts' 
+Plugin 'tomasr/molokai'
 Plugin 'joshdick/onedark.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,40 +56,30 @@ syntax enable
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
-" working together to make it better !
-
-" To connect to the pad at URI http://localhost:9001/p/test per default:
-let g:epad_host = "109.12.211.231" " Hostname to connect to
-let g:epad_port = "8555"      " Port to connect to
-let g:epad_path = "p/"        " URL Path to the pad
-let g:epad_pad = "game"       " Name of the pad to connect to
-
-" GUI feel
-let g:epad_updatetime = 250  " lower this for more realtime, higher this for less load
-
-" GUI look
-let g:epad_attributes = 0     " set to 1 to display attributes (works only with a font that)
-let g:epad_authors = 0        " set to 1 to display authors (works only in gui mode)
-
-" Enable verbosity
-let g:epad_verbose = 0        " set to 1 for INFO level, 2 for DEBUG level
-
-" COLORS !!!
-
-
 " Global Setting
 " --------------------------------------------------------------------------------
+let anyfold_activate=1
+set foldlevel=0
+let anyfold_fold_comments=1
+
+if (has("nvim"))
+    let g:split_term_vertical=0
+    let g:disable_key_mappings=0
+endif
+
 let python_highlight_all = 1
+
 set updatetime=250 
+
 set number
 set relativenumber
+set splitright
+
 map <f7> :DoShowMarks!<cr>
 nnoremap <F4> :make<cr>
 let g:UltiSnipsExpandTrigger="²"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
 " to misusing tabs
@@ -178,6 +172,21 @@ nmap N Nzz
 nmap } }zz
 nmap { {zz
 
+xnoremap <silent> K :call mappings#visual#move_up()<CR>
+xnoremap <silent> J :call mappings#visual#move_down()<CR>
+
+" Toggle fold at current position.
+nnoremap <Tab> za
+
+" Terminal Stuff
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-l> <C-\><C-N><C-w>l
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+" for now...
+autocmd BufWinEnter,WinEnter term://* startinsert
+
 " ----------------------------------------------------------------------------------------------
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -193,7 +202,11 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree | execute "normal \<C-W>l"
+if (has("nvim"))
+    autocmd vimenter * 100VTerm
+    autocmd vimenter * execute "normal \<C-W>h" | stopinsert
+endif
 
 set background=dark
 let g:onedark_termcolors=256
