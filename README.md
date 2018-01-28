@@ -7,9 +7,9 @@ You can run the vim-layout script (in the tmux folder) to run tmux with vim in t
 you have access to a lot of plugins that i use, linked in the .vim folder. install vundle for a full support of my .vimrc and do a :PluginInstall to install all plugins.
 
 For a windows .vimrc install with git bash installed (and vim as the edition program (ie. recommanded editor for git bash)):  
-'''
+```
 git clone https://github.com/Narice/dotfiles/ ~ && mv ~/dotfiles/vim/.virmc ~ && git clone https://github.com/VundleVim/Vundle.vim.git && ~/.vim/bundle/Vundle.vim && rm -rf ~/dotfiles/ && vim
-'''
+```
 (then, do a :PluginInstall)  
 if you want to install a powerline font, I recommand the Inconsolata for powerline font  
 to install, go to:  
