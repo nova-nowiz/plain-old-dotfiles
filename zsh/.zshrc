@@ -70,7 +70,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-alias vim="nvim"
+# alias vim="nvim" # uncomment if you want to launch neovim when you type vim
 
 function chpwd() {
     emulate -L zsh
