@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mklabs/split-term.vim'
 
+Plugin 'sakhnik/nvim-gdb'
 Plugin 'valloric/youcompleteme'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-python/python-syntax'
@@ -76,11 +77,11 @@ set number
 set relativenumber
 set splitright
 
-map <f7> :DoShowMarks!<cr>
-nnoremap <F4> :make<cr>
+map <f9> :DoShowMarks!<cr>
 let g:UltiSnipsExpandTrigger="²"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:ycm_server_python_interpreter="/usr/bin/python2"
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
 " to misusing tabs
@@ -203,11 +204,13 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+" All autocommands
 autocmd vimenter * NERDTree | execute "normal \<C-W>l"
 if (has("nvim"))
     autocmd vimenter * 100VTerm
     autocmd vimenter * execute "normal \<C-W>h" | stopinsert
 endif
+autocmd ColorScheme * hi Normal ctermbg=none guibg=none
 
 set background=dark
 let g:onedark_termcolors=256

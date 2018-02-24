@@ -3,6 +3,7 @@
 
 export DEFAULT_USER="narice"
 export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -185,6 +186,3 @@ ranger-cd() {
 }
 zle -N ranger-cd
 bindkey '^o' ranger-cd
-source /home/narice/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
