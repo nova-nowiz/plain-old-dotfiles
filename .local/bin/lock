@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# scrot /tmp/screenshot.png
+
+# convert /tmp/screenshot.png -blur 0x10 /tmp/screenshotblur.png
+ 
+# Lock screen displaying this image.
+# i3lock -i $HOME/.config/i3wm-themer/templated_themes/Minimal/MinimalBlur.png
+# i3lock -i /tmp/screenshotblur.png
+i3lock -B=100 --indicator -k \
+    --insidecolor=00000030 --ringcolor=290a56ff --linecolor=00000000 \
+    --insidevercolor=00000030 --ringvercolor=290a567f \
+    --insidewrongcolor=00000030 --ringwrongcolor=f082377f \
+    --bshlcolor=f082377f --keyhlcolor=127ebe7f \
+    --separatorcolor=290a56ff \
+    --verifcolor=ffffffff --wrongcolor=ffffffff --layoutcolor=ffffffff \
+    --timestr="%H:%M:%S" --timecolor=ffffffff \
+    --datestr="%A, %m %Y" --datecolor=ffffffff \
+    --radius 150 --ring-width 1
+    # --indpos="550:850" --timepos="250:850" --datepos="250:850" \
+
+# Turn the screen off after a delay.
+sleep 20; pgrep i3lock && xset dpms force off

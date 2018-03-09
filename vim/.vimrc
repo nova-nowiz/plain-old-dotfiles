@@ -168,11 +168,12 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 nmap di, f,dT,
 nmap ci, f,cT,
 
-nmap G Gzz
 nmap n nzz
 nmap N Nzz
 nmap } }zz
 nmap { {zz
+nmap ) )zz
+nmap ( (zz
 
 xnoremap <silent> K :call mappings#visual#move_up()<CR>
 xnoremap <silent> J :call mappings#visual#move_down()<CR>
@@ -206,10 +207,10 @@ endif
 
 " All autocommands
 autocmd vimenter * NERDTree | execute "normal \<C-W>l"
-if (has("nvim"))
-    autocmd vimenter * 100VTerm
-    autocmd vimenter * execute "normal \<C-W>h" | stopinsert
-endif
+" if (has("nvim"))
+"     autocmd vimenter * 100VTerm
+"     autocmd vimenter * execute "normal \<C-W>h" | stopinsert
+" endif
 autocmd ColorScheme * hi Normal ctermbg=none guibg=none
 
 set background=dark
