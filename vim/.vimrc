@@ -178,6 +178,9 @@ nmap ( (zz
 xnoremap <silent> K :call mappings#visual#move_up()<CR>
 xnoremap <silent> J :call mappings#visual#move_down()<CR>
 
+" transparency
+nnoremap <C-t> :call mappings#transparency#Toggle_transparent()<CR>
+
 " Toggle fold at current position.
 nnoremap <Tab> za
 
@@ -214,6 +217,7 @@ autocmd vimenter * NERDTree | execute "normal \<C-W>l"
 autocmd ColorScheme * hi Normal ctermbg=none guibg=none
 
 set background=dark
+let g:is_transparent=1
 let g:onedark_termcolors=256
 colorscheme onedark
 " let g:molokai_original = 1
