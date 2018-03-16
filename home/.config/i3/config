@@ -1,3 +1,4 @@
+
 # COLORS ------------- AND ------------ APPERANCE
 
 set_from_resource	  $color15_i3wmthemer	    color15
@@ -244,7 +245,7 @@ assign [class="libreoffice"] $ws8
 
 exec compton
 exec nitrogen --set-scaled $HOME/.config/background/background.png; lock
-exec termite
+exec termite -e $HOME/.config/i3/autoupdate.sh
 exec firefox
 exec discord
 exec rhythmbox
