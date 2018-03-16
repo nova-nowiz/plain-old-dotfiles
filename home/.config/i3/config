@@ -105,6 +105,12 @@ bindsym $mod+m layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# split a window that is tabbed
+bindsym $mod+Shift+m split v, layout stacking
+bindsym $mod+Shift+w split v, layout tabbed
+bindsym $mod+Shift+e split v, layout toggle split
+
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -157,7 +163,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # locks i3
 bindsym $mod+Shift+x exec lock
@@ -237,11 +243,12 @@ assign [class="libreoffice"] $ws8
 
 
 exec compton
-exec nitrogen --set-scaled $HOME/.config/i3wm-themer/templated_themes/Minimal/Minimal.png; lock
+exec nitrogen --set-scaled $HOME/.config/background/background.png; lock
 exec termite
 exec firefox
 exec discord
 exec rhythmbox
 exec xset led 3
-exec xset s 350
-exec xautolock -time 5 -locker lock -notify 30 -notifier 'notify-send "locker" "30 seconds before lock"'
+exec xset s 650
+exec xautolock -time 10 -locker lock -notify 30 -notifier 'notify-send "locker" "30 seconds before lock"'
+exec redshift

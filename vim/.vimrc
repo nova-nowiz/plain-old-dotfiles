@@ -15,12 +15,16 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mklabs/split-term.vim'
 
-Plugin 'sakhnik/nvim-gdb'
-Plugin 'valloric/youcompleteme'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'valloric/youcompleteme'
+" Plugin 'vim-scripts/OmniCppComplete'
+" Plugin 'justmao945/vim-clang'
+
+Plugin 'sakhnik/nvim-gdb'
 Plugin 'vim-python/python-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'kmyk/sdl2.vim'
+
 Plugin 'pseewald/vim-anyfold'
 Plugin 'konfekt/fastfold'
 
@@ -60,6 +64,7 @@ syntax enable
 
 " Global Setting
 " --------------------------------------------------------------------------------
+set mouse=a
 let anyfold_activate=1
 set foldlevel=0
 let anyfold_fold_comments=1
@@ -82,6 +87,55 @@ let g:UltiSnipsExpandTrigger="²"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ycm_server_python_interpreter="/usr/bin/python2"
+
+
+
+" configure tags - add additional tags here or comment out not-used ones
+set tags+=~/.vim/tags/c
+set tags+=~/.vim/tags/gl
+set tags+=~/.vim/tags/sdl
+set tags+=~/.vim/tags/sdl2
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/gl++
+set tags+=~/.vim/tags/sdl++
+set tags+=~/.vim/tags/sdl2++
+
+set tags+=~/.vim/tags/Kapture
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.', '_', 're!\w{3}'],
+  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \             're!\[.*\]\s'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::', '_', 're!\w{3}'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+
+let g:ycm_max_num_candidates = 30
+     
+"     " OmniCppComplete
+"     let OmniCpp_NamespaceSearch = 1
+"     let OmniCpp_GlobalScopeSearch = 1
+"     let OmniCpp_ShowAccess = 1
+"     let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+"     let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+"     let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+"     let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"     let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"     " automatically open and close the popup menu / preview window
+"     au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"     set completeopt=menuone,menu,longest,preview
+
+
+
+
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
 " to misusing tabs
