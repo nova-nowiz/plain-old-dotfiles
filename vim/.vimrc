@@ -75,6 +75,7 @@ syntax enable
 " Global Setting
 " --------------------------------------------------------------------------------
 set mouse=a
+autocmd vimenter * AnyFoldActivate
 set foldlevel=0
 let anyfold_fold_comments=1
 
