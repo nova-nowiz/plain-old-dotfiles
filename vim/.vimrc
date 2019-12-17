@@ -1,138 +1,132 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 
 
 " Others
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mklabs/split-term.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'tpope/vim-repeat'
-Plugin 'ashisha/image.vim'
-Plugin 'mtth/scratch.vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mklabs/split-term.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'tpope/vim-repeat'
+Plug 'ashisha/image.vim'
+Plug 'mtth/scratch.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'easymotion/vim-easymotion'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 
 
 
 " Window and tab management
-Plugin 't9md/vim-choosewin'
-Plugin 'weilbith/nerdtree_choosewin-plugin'
+Plug 't9md/vim-choosewin'
+Plug 'weilbith/nerdtree_choosewin-plugin'
 
 
 " Linting
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Completion
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'Shougo/echodoc.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/echodoc.vim'
 
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'lighttiger2505/deoplete-vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
-Plugin 'Shougo/neco-syntax'
-Plugin 'Shougo/neco-vim'
-" Plugin 'carlitux/deoplete-ternjs'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neco-vim'
+" Plug 'carlitux/deoplete-ternjs'
 
 " GDB console in neovim
-Plugin 'sakhnik/nvim-gdb'
+Plug 'sakhnik/nvim-gdb'
 
 
 
 " For syntax highlighting management -----
-Plugin 'vim-python/python-syntax'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'jaxbot/semantic-highlight.vim'
-Plugin 'kmyk/sdl2.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'jdonaldson/vaxe'
-Plugin 'rust-lang/rust.vim'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-python/python-syntax'
+Plug 'justinmk/vim-syntax-extra'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'kmyk/sdl2.vim'
+Plug 'xolox/vim-misc'
+Plug 'jdonaldson/vaxe'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 
 
 " For tag management -----
-Plugin 'majutsushi/tagbar'
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 
 
 " For fold management -----
-Plugin 'pseewald/vim-anyfold'
-Plugin 'konfekt/fastfold'
-Plugin 'arecarn/vim-fold-cycle'
+Plug 'pseewald/vim-anyfold'
+Plug 'konfekt/fastfold'
+Plug 'arecarn/vim-fold-cycle'
 
 
 
 " Text management -----
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'svermeulen/vim-yoink'
-Plugin 'svermeulen/vim-subversive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'svermeulen/vim-yoink'
+Plug 'svermeulen/vim-subversive'
 
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'vim-scripts/argtextobj.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'bkad/CamelCaseMotion'
+Plug 'vim-scripts/argtextobj.vim'
 
 
 
 " Snippets -----
-Plugin 'honza/vim-snippets'
-Plugin 'sirver/ultisnips'
-Plugin 'thomasfaingnaert/vim-lsp-ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
-Plugin 'jacquesbh/vim-showmarks'
-Plugin 'terryma/vim-smooth-scroll'
-Plugin 'adelarsq/vim-matchit'
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'tomtom/tcomment_vim'
+Plug 'jacquesbh/vim-showmarks'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'adelarsq/vim-matchit'
+Plug 'vim-scripts/ZoomWin'
+Plug 'tomtom/tcomment_vim'
 
 
 
 " For aestetics -----
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'powerline/powerline'
-Plugin 'powerline/fonts'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'thaerkh/vim-indentguides'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'powerline/powerline'
+Plug 'powerline/fonts'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'thaerkh/vim-indentguides'
 
-Plugin 'joshdick/onedark.vim'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
-Plugin 'Rigellute/rigel'
+Plug 'joshdick/onedark.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plug 'Rigellute/rigel'
 
-Plugin 'lervag/vimtex'
-Plugin 'KeitaNakamura/tex-conceal.vim'
+Plug 'lervag/vimtex'
+Plug 'KeitaNakamura/tex-conceal.vim'
 
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " Always load last
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()            " required
 syntax enable
 
 
