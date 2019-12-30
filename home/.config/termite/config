@@ -3,7 +3,9 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Inconsolata for Powerline 9
+font = Hack 10
+#font = FuraCode Nerd Font 10
+#font = Inconsolata for Powerline 11
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal

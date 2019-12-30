@@ -1,9 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/.local/bin:$PATH
+export PATH="/usr/lib/ccache/bin/:$PATH:/home/narice/.vim/bundle/vim-live-latex-preview/bin/"
+export MAKEFLAGS="-j5 -l4"
 
 export DEFAULT_USER="narice"
-export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -11,7 +13,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 # Set list of themes to load
@@ -63,9 +65,6 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,7 +135,21 @@ HYPHEN_INSENSITIVE="true"
 #COMPLETION_WAITING_DOTS="true"
 # /!\ do not use with zsh-autosuggestions
 
-plugins=(k tig gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+    git 
+    tig 
+    gitfast
+    colorize 
+    command-not-found 
+    cp 
+    dirhistory 
+    autojump 
+    sudo 
+    zsh-syntax-highlighting 
+    zsh-autosuggestions
+    zsh-vim-mode
+    web-search
+)
 # /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
 
 source $ZSH/oh-my-zsh.sh
@@ -171,6 +184,10 @@ function _my_clear() {
 zle -N _my_clear
 bindkey '^l' _my_clear
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
 
 # Ctrl-O opens zsh at the current location, and on exit, cd into ranger's last location.
 ranger-cd() {
@@ -191,7 +208,7 @@ bindkey '^o' ranger-cd
 alias pac='sudo pacman -S'   # install
 alias pacu='sudo pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
 alias pacr='sudo pacman -Rs'   # remove
-alias pacs='sudo pacman -Ss'      # search
+alias pacs='pacman -Ss'      # search
 alias paci='sudo pacman -Si'      # info
 alias paclo='sudo pacman -Qdt'    # list orphans
 alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
@@ -208,6 +225,7 @@ alias haxelr='haxelib run'
 alias vim='nvim'
 alias youtube-dla='youtube-dl -x --audio-format vorbis --audio-quality 192'
 alias scrotclip='scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
+alias dcmus='screen -q -r -D cmus || screen -S cmus $(which cmus)'
 
 # opam configuration
 test -r /home/narice/.opam/opam-init/init.zsh && . /home/narice/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
