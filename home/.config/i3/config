@@ -251,6 +251,7 @@ assign [class="libreoffice"] $ws8
 
 
 
+exec ntpdate -u ptbtime1.ptb.de && hwclock -w
 exec dunst
 exec compton
 exec nitrogen --set-scaled $HOME/.config/background/background.png; lock
