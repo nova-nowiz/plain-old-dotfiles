@@ -1,64 +1,38 @@
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
-
-
-
 " Others
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'mklabs/split-term.vim'
-Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-repeat'
-Plug 'ashisha/image.vim'
-Plug 'mtth/scratch.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 
+Plug 'jacquesbh/vim-showmarks'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'andymass/vim-matchup' " () {} match
+Plug 'regedarek/ZoomWin' " <C-w>o to zoom in and out of a window
+
 
 
 " Window and tab management
 Plug 't9md/vim-choosewin'
-Plug 'weilbith/nerdtree_choosewin-plugin'
+
+ 
+
+" Completion & Linting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
-" Linting
-Plug 'w0rp/ale'
-
-" Completion
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/echodoc.vim'
-
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
-
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neco-vim'
-" Plug 'carlitux/deoplete-ternjs'
 
 " GDB console in neovim
-Plug 'sakhnik/nvim-gdb'
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
 
 
 " For syntax highlighting management -----
-Plug 'vim-python/python-syntax'
-Plug 'justinmk/vim-syntax-extra'
 Plug 'jaxbot/semantic-highlight.vim'
-Plug 'kmyk/sdl2.vim'
-Plug 'xolox/vim-misc'
-Plug 'jdonaldson/vaxe'
-Plug 'rust-lang/rust.vim'
-Plug 'vim-pandoc/vim-pandoc-syntax'
 
 
 
@@ -76,13 +50,12 @@ Plug 'arecarn/vim-fold-cycle'
 
 
 " Text management -----
-Plug 'jiangmiao/auto-pairs'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'svermeulen/vim-yoink'
 Plug 'svermeulen/vim-subversive'
 
+" Text objects -----
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'vim-scripts/argtextobj.vim'
@@ -92,13 +65,12 @@ Plug 'vim-scripts/argtextobj.vim'
 " Snippets -----
 Plug 'honza/vim-snippets'
 Plug 'sirver/ultisnips'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
-Plug 'jacquesbh/vim-showmarks'
-Plug 'terryma/vim-smooth-scroll'
-Plug 'adelarsq/vim-matchit'
-Plug 'vim-scripts/ZoomWin'
-Plug 'tomtom/tcomment_vim'
+
+
+" Latex IDE
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'KeitaNakamura/tex-conceal.vim', { 'for': 'tex' }
 
 
 
@@ -107,62 +79,40 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerline/powerline'
 Plug 'powerline/fonts'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'thaerkh/vim-indentguides'
 
-Plug 'joshdick/onedark.vim'
+" Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
+
 Plug 'lifepillar/vim-solarized8'
 Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
 Plug 'Rigellute/rigel'
 
-Plug 'lervag/vimtex'
-Plug 'KeitaNakamura/tex-conceal.vim'
-
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-
-" Always load last
-Plug 'ryanoasis/vim-devicons'
-
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
-syntax enable
 
 
 " Global Setting ----------------------------------------------------
+syntax enable
 set mouse=a
 set foldlevel=0
 set clipboard+=unnamedplus
 
-" allows you to deal with multiple unsaved
-" buffers simultaneously without resorting
-" to misusing tabs
+" allows you to deal with multiple unsaved buffers
 set hidden
 
-" just hit backspace without this one and
-" see for yourself
 set backspace=indent,eol,start
 
 " Set to auto read when a file is changed from the outside
 set autoread
 
-
-
-" Highlight search results
 set hlsearch
 
-" Makes search act like search in modern browsers
 set incsearch
 
-
-
-" Show matching brackets when text indicator is over them
 set showmatch
 
-" How many tenths of a second to blink when matching brackets
 set mat=2
-
 
 
 " Indentation
@@ -172,7 +122,6 @@ set si "Smart indent
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
 set smarttab
 
 " 1 tab == 4 spaces
@@ -180,21 +129,17 @@ set shiftwidth=4
 set tabstop=4
 
 
-
 " Linebreak on 500 characters
 set lbr
 set tw=500
 
-set colorcolumn=110
+set colorcolumn=80
 
 set wrap "Wrap lines
 set noshowmode " Disable mode in command line
 
-
-
+" CursorHold even ms delay
 set updatetime=250
-
-
 
 " For the numbers column
 set number
@@ -213,6 +158,12 @@ set cpo=d
 " Hides unnecessary things (used for Latex)
 set conceallevel=2
 
+" True color support
+set termguicolors
+
+" Makes a completion menu appear even when there is only one mathc
+set completeopt+=menuone
+
 " Leader key assignement
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -223,126 +174,22 @@ let maplocalleader=" "
 
 " PLUGIN CONFIG -----------------------------------------------------
 
-" Nvim specific plugin setup
-if (has("nvim"))
+" nvimGDB Config
+function! NvimGdbNoTKeymaps()
+  tnoremap <silent> <buffer> <esc> <c-\><c-n>
+endfunction
 
-
-    " Ale Config
-    let g:ale_set_balloons=1
-    let g:ale_cpp_gcc_options = '-std=c++17 -Wall -I/usr/include/entt/ -I/usr/include/rapidjson/'
-    let g:ale_cpp_clang_options = '-std=c++17 -Wall -I/usr/include/entt/ -I/usr/include/rapidjson/'
-    let g:ale_fixers = {
-    \   'cpp': [
-    \       'clang-format',
-    \       'uncrustify',
-    \   ],
-    \   'js': [
-    \       'eslint',
-    \       'prettier',
-    \   ],
-    \   'html': [
-    \       'tidy',
-    \       'prettier',
-    \   ],
-    \}
-    let g:ale_cpp_cppcheck_options = '--enable=style -i build -i tests -I/usr/include/entt/ -I/usr/include/rapidjson/'
-    let g:ale_cpp_cpplint_options = '--extensions=hpp,cpp,hxx,cxx,cc,h,cu,cuh'
-
-
-
-    " Deoplete config
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#max_abbr_width = 0
-    let g:deoplete#max_menu_width = 0
-    call deoplete#custom#option('sources', {
-    \ '_': ['ultisnips', 'lsp', 'file', 'syntax'],
-    \ 'js': ['ternjs'],
-    \ 'vim': ['vim'],
-    \})
-    call deoplete#custom#option('keyword_patterns', {
-	\ '_': '[a-zA-Z_]\k*',
-    \})
-
-
-
-    " Ternjs config
-    " let g:deoplete#sources#ternjs#types = 1
-    " let g:deoplete#sources#ternjs#depths = 1
-    " let g:deoplete#sources#ternjs#docs = 1
-    " let g:deoplete#sources#ternjs#filter = 1
-    " let g:deoplete#sources#ternjs#case_insensitive = 1
-    " let g:deoplete#sources#ternjs#guess = 1
-    " let g:deoplete#sources#ternjs#sort = 1
-    " let g:deoplete#sources#ternjs#expand_word_forward = 1
-    " let g:deoplete#sources#ternjs#omit_object_prototype = 0
-    " let g:deoplete#sources#ternjs#include_keywords = 0
-    " let g:deoplete#sources#ternjs#in_literal = 1
-
-    " Add extra filetypes
-    " let g:deoplete#sources#ternjs#filetypes = [
-    " \ 'jsx',
-    " \ 'javascript.jsx',
-    " \ 'vue',
-    " \ '...'
-    " \ ]
-
-
-
-    " Other Options
-
-    let g:split_term_vertical=0
-    let g:disable_key_mappings=0
-
-    let g:lsp_diagnostics_enabled = 0
-
-    let g:echodoc#enable_at_startup = 1
-endif
-
-
-
-" Lsp config
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-
-if executable('metals-vim')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'metals',
-      \ 'cmd': {server_info->['metals-vim']},
-      \ 'initialization_options': { 'rootPatterns': 'build.sbt'},
-      \ 'whitelist': [ 'scala', 'sbt' ],
-      \ })
-endif
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-" if executable('tsserver')
-"     au User lsp_setup call lsp#register_server({
-"       \ 'name': 'javascript support using tsserver',
-"       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'tsserver --stdio']},
-"       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-"       \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
-"       \ })
-" endif
-
-
-
-" Ctrlp Options
-let g:ctrlp_extensions = ['mixed', 'tag', 'line', 'quickfix', 'dir', 'changes', 'bookmarkdir']
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_map = '<a-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:nvimgdb_config_override = {
+  \ 'key_next': 'n',
+  \ 'key_step': 's',
+  \ 'key_finish': 'f',
+  \ 'key_continue': 'c',
+  \ 'key_until': 'u',
+  \ 'key_breakpoint': 'b',
+  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
+  \ 'sign_current_line': '▶',
+  \ 'sign_breakpoint': [ '●', '●²', '●³', '●⁴', '●⁵', '●⁶', '●⁷', '●⁸', '●⁹', '●ⁿ' ],
+  \ }
 
 
 
@@ -370,14 +217,6 @@ let g:tex_conceal='abdmg'
 
 
 
-" NERDTree Options
-let NERDTreeShowBookmarks=1
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-
-
-
 " Fuzzy Incsearch
 function! s:config_fuzzyall(...) abort
   return extend(copy({
@@ -388,24 +227,16 @@ function! s:config_fuzzyall(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-" Incsearch x Easymotion
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
+
+
+" Indent line Config
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
 
 
 
 " Other Options
-let python_highlight_all = 1
-
-let g:AutoPairsShortcutToggle = '<c-p>'
-
 let g:yoinkIncludeDeleteOperations=1
 
 let anyfold_fold_comments=1
@@ -416,11 +247,9 @@ let g:fold_cycle_default_mapping = 0 "disable default mappings
 
 let g:choosewin_overlay_enable = 0
 
-let g:scratch_insert_autohide = 0
-let g:scratch_persistence_file = "~/scratch"
-let g:scratch_no_mappings = 1
-
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+let g:incsearch#auto_nohlsearch = 1
 
 
 
@@ -439,9 +268,7 @@ omap > ]
 xmap < [
 xmap > ]
 nmap << [[
-nmap >> ]]
-nmap <> []
-nmap >< ][
+nmap >> ]] nmap <> [] nmap >< ][
 
 " Disabling the arrow keys
 no <down> ddp
@@ -492,29 +319,12 @@ nmap { {zz
 nmap ) )zz
 nmap ( (zz
 
-" Visual move up with indentation
-xnoremap <silent> K :call mappings#visual#move_up()<CR>
-xnoremap <silent> J :call mappings#visual#move_down()<CR>
-
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+" tab-complete
+inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>" " This makes absolutely no sense
+inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"
 
 " transparency
 nnoremap <C-t> :call mappings#transparency#Toggle_transparent()<CR>
-
-" CtrlP Keybinds
-nmap <a-t> :CtrlPTag<CR>
-" nmap <a-l> :CtrlPLine<CR>
-nmap <a-b> :CtrlPBuffer<CR>
-nmap <a-q> :CtrlPQuickfix<CR>
-
-" Ale movement keybinds
-nmap <silent> <a-k> <Plug>(ale_previous_wrap)
-nmap <silent> <a-j> <Plug>(ale_next_wrap)
-
-nmap <a-d> :ALEGoToDefinitionInVSplit<CR>
-" GoToImplementation is Ctrl+]
 
 " Yoinks keybinds
 nmap <a-h> <plug>(YoinkPostPasteSwapBack)
@@ -553,12 +363,13 @@ xmap P <plug>(SubversiveSubstitute)
 
 
 " Very useful function keybindings
-map <F1> :LspHover<CR>
-map <F2> :NERDTreeToggle<CR>
+map <F2> :CocCommand explorer<CR>
 map <F3> :TagbarToggle<CR>
-map <F4> :DoShowMarks!<cr>
+map <F4> :DoShowMarks!<CR>
 map <F5> :make<CR>
 map <F6> :setlocal spell!<CR>
+
+
 
 " Using Buffers
 nnoremap gb :ls<CR>:b<Space>
@@ -567,15 +378,22 @@ nnoremap gb :ls<CR>:b<Space>
 nmap <leader><Tab> <Plug>(fold-cycle-open)
 nmap <leader><S-Tab> <Plug>(fold-cycle-close)
 
-nmap <leader>gs :Scratch<CR>
-nmap <leader>gS :Scratch!<CR>
-xmap <leader>gs <plug>(scratch-selection-reuse)
-xmap <leader>gS <plug>(scratch-selection-clear)
-
-noremap <silent><expr> z/ incsearch#go(<SID>config_fuzzyall())
+" Incsearch mappings
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+noremap <silent><expr> fs incsearch#go(<SID>config_fuzzyall())
 noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
-noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> zg/ incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
+noremap <silent><expr> <Space>m incsearch#go(<SID>config_easyfuzzymotion())
+
+" Auto disabling of highlighting after search
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " Easymotion keybinds
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -585,10 +403,32 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 
 
+" Conquer of completion
+
+inoremap <silent><expr> <C-j>
+  \ pumvisible() ? "\\<C-n>" :
+  \ coc#refresh()
+
+inoremap <silent><expr> <C-k>
+  \ pumvisible() ? "\\<C-p>" :
+  \ coc#refresh()
+
+inoremap <silent><expr> <TAB>
+  \ coc#expandableOrJumpable() ? "\\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\\<CR>" :
+  \ <SID>check_back_space() ? "\\<TAB>" :
+  \ coc#refresh()
+
+let g:coc_snippet_next = '<TAB>'
+
+inoremap <expr> <CR> pumvisible() ? "\\<C-y>" : "\\<CR>"
+
+
+
+
 " AUTOCOMMANDS ----------------------------------------------------------
 
 " Startup script
-autocmd vimenter * NERDTree | execute "normal \<C-W>l" | AnyFoldActivate
+autocmd vimenter * AnyFoldActivate
 
 " Terminal autoinsert (I think)
 autocmd BufWinEnter,WinEnter term://* startinsert
@@ -617,21 +457,14 @@ function LargeFile()
     augroup END
 endfunction
 
-" Auto enable limelight when entering goyo mode
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 
 
 " COLORSCHEME ----------------------------------------------------------
-
-" True color support
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 " Dark color scheme
 set background=dark
@@ -639,10 +472,8 @@ set background=dark
 " In case the color scheme doesn't have a ColorColumn
 highlight ColorColumn ctermbg=darkgray
 
-" autocmd ColorScheme * hi Normal ctermbg=none guibg=none
+" autocmd ColorScheme * hi Normal ctermbg=none guibg=none " For transparency
 colorscheme challenger_deep
-" let g:onedark_termcolors=256
-" colorscheme onedark
 
 " Transparency keybinding variables
 let g:is_transparent=0
