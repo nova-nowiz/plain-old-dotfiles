@@ -198,7 +198,16 @@ alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
 alias pacc='sudo pacman -Scc'    # clean cache
 alias paclf='sudo pacman -Ql' # list files
 
+# haxelib aliases
+alias haxel='haxelib install'
+alias haxels='haxelib search'
+alias haxelu='haxelib update'
+alias haxelr='haxelib run'
+
 #nvim alias
 alias vim='nvim'
 alias youtube-dla='youtube-dl -x --audio-format vorbis --audio-quality 192'
 alias scrotclip='scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
+
+# opam configuration
+test -r /home/narice/.opam/opam-init/init.zsh && . /home/narice/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
