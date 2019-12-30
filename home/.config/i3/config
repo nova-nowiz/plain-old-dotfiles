@@ -245,7 +245,8 @@ assign [class="libreoffice"] $ws8
 
 exec dunst
 exec compton
-exec nitrogen --set-scaled $HOME/.config/background/background.png; lock
+exec $HOME/.config/i3/auto-nitro.sh
+exec lock
 exec termite --exec="zsh -c 'sudo pacman -Syu; zsh'"
 exec firefox
 exec discord
