@@ -3,7 +3,8 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Hack 10
+#font = OpenMoji 9
+font = Hack Nerd Font 9
 #font = FuraCode Nerd Font 10
 #font = Inconsolata for Powerline 11
 #fullscreen = true
