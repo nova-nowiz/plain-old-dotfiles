@@ -1,0 +1,11 @@
+export PATH="$HOME/.local/bin:$PATH"
+export XIM=nabi
+export XIM_ARGS=
+export XIM_PROGRAM="nabi"
+export XMODIFIERS="@im=nabi"
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+export TERMINAL=alacritty
+export FZF_DEFAULT_OPTS="--preview 'bat --theme="base16" --style=numbers,changes --color=always --line-range :500 {}'"
+export FZF_DEFAULT_COMMAND='fd --type f -j 4 --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
