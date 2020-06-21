@@ -209,6 +209,12 @@ ranger-cd() {
 zle -N ranger-cd
 bindkey '^o' ranger-cd
 
+# mkcd function
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
+
 # pacman aliases
 alias pac='sudo pacman -S'   # install
 alias pacu='sudo pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
