@@ -4,7 +4,12 @@
 
 exec_always --no-startup-id $HOME/.config/waybar/launch.sh
 exec compton
-exec setxkbmap -rules evdev -model pc105 -layout "fr,fr,us" -variant "us,bepo,intl" -option 'grp:alt_shift_toggle'
+# exec setxkbmap -rules evdev -model pc105 -layout "fr,fr,us" -variant "us,bepo,intl" -option 'grp:alt_shift_toggle'
+input keyboard xkb_rules evdev
+input keyboard xkb_model pc105
+input keyboard xkb_layout fr,fr,us
+input keyboard xkb_variant us,bepo,intl
+input keyboard xkb_option grp:alt_shift_toggle,shift:both_capslock_cancel,caps:escape
 exec ntpdate -u ptbtime1.ptb.de && hwclock -w # updates the time of the computer at startup
 exec $HOME/.config/i3/auto-nitro.sh
 exec mako # notifications
