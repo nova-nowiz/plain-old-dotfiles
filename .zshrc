@@ -111,6 +111,24 @@ function mkcd () {
   cd "$1"
 }
 
+# emacs function to multiplex emacs
+function emacs {
+    if [[ $# -eq 0 ]]; then
+        /usr/bin/emacs # "emacs" is function, will cause recursion
+        return
+    fi
+    args=($*)
+    for ((i=0; i <= ${#args}; i++)); do
+        local a=${args[i]}
+        # NOTE: -c for creating new frame
+        if [[ ${a:0:1} == '-' && ${a} != '-c' && ${a} != '--' ]]; then
+            /usr/bin/emacs ${args[*]}
+            return
+        fi
+    done
+    setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
+}
+
 # pacman aliases
 alias pac='sudo pacman -S'   # install
 alias pacu='sudo pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
