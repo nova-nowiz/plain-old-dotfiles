@@ -22,7 +22,7 @@ background-alt = #444
 foreground = ${xrdb:polybar.foreground:#dfdfdf}
 foreground-alt = #555
 primary = ${xrdb:polybar.color7:#ffb52a}
-secondary = ${xrdb:polybar.color15:#e60053}
+secondary = ${xrdb:polybar.color15:#a6b3cc}
 alert = ${xrdb:polybar.color9:#bd2c40}
 
 [bar/mybar]
