@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## Nitrogenium is a wallpaper randomizer for Openbox based on Nitrogen
 ## this script was inspired by but is *NOT* based on Variety by Peter Levi

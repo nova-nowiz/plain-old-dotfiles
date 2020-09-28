@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## Auto-Nitro is a script to automatically change the wallpaper with Nitrogenium
 
