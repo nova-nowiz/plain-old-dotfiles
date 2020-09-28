@@ -113,7 +113,8 @@
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       ;;csharp            ; unity, .NET, and mono shenanigans
+       (csharp           ; unity, .NET, and mono shenanigans
+        +lsp)
        data              ; config/data formats
        ;;elixir            ; erlang done right
        (elm              ; care for a cup of TEA?
@@ -125,7 +126,9 @@
        ;;fsharp           ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;go                ; the hipster dialect
-       ;;(haskell +dante)  ; a language that's lazier than I am
+       (haskell           ; a language that's lazier than I am
+        +dante
+        +lsp)
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        (java             ; the poster child for carpal tunnel syndrome
@@ -139,7 +142,8 @@
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
-       ;;lua               ; one-based indices? one-based indices
+       (lua              ; one-based indices? one-based indices
+        +lsp)
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
@@ -147,7 +151,7 @@
        (org              ; organize your plain life in plain text
         +dragndrop       ; drag & drop files/images into org buffers
         +hugo            ; use Emacs for hugo blogging
-        +jupyter        ; ipython/jupyter support for babel
+        ;; +jupyter        ; ipython/jupyter support for babel
         +pandoc          ; export-with-pandoc support
         +pomodoro        ; be fruitful with the tomato technique
         +present)        ; using org-mode for presentations
