@@ -10,15 +10,18 @@ export ZSH=$HOME/.oh-my-zsh
 
 # If you come from bash you might have to change your $PATH.
 export PATH="/usr/lib/ccache/bin/:$PATH:/home/narice/.vim/bundle/vim-live-latex-preview/bin/"
+export LIBRARY_PATH="/nix/store/7p1v1b6ys9fydg5kdqvr5mpr8svhwf4p-glibc-2.31/lib:$LIBRARY_PATH"
 export MAKEFLAGS="-j5 -l4"
 
 export DEFAULT_USER="narice"
 export LANG="en_US.UTF-8"
-export EDITOR="emacsclient"
-export VISUAL="emacsclient"
+export EDITOR="emacs"
+export VISUAL="emacs"
+export NIX_BUILD_SHELL="zsh"
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+export FZF_BASE="`fzf-share`"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -40,6 +43,7 @@ plugins=(
     zsh-vim-mode
     web-search
     fzf
+    nix-shell
     zsh-syntax-highlighting 
     zsh-autosuggestions
 )
@@ -114,7 +118,7 @@ function mkcd () {
 # emacs function to multiplex emacs
 function emacs {
     if [[ $# -eq 0 ]]; then
-        /usr/bin/emacs # "emacs" is function, will cause recursion
+        /usr/bin/env emacs # "emacs" is function, will cause recursion
         return
     fi
     args=($*)
@@ -122,12 +126,25 @@ function emacs {
         local a=${args[i]}
         # NOTE: -c for creating new frame
         if [[ ${a:0:1} == '-' && ${a} != '-c' && ${a} != '--' ]]; then
-            /usr/bin/emacs ${args[*]}
+            /usr/bin/env emacs ${args[*]}
             return
         fi
     done
-    setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
+    setsid emacsclient -n -a /usr/bin/env emacs ${args[*]}
 }
+
+# start typing + [Up-Arrow] - fuzzy find history forward
+if [[ "${terminfo[kcuu1]}" != "" ]]; then
+  autoload -U up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+# start typing + [Down-Arrow] - fuzzy find history backward
+if [[ "${terminfo[kcud1]}" != "" ]]; then
+  autoload -U down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
 
 # pacman aliases
 alias pac='sudo pacman -S'   # install
@@ -140,6 +157,10 @@ alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
 alias pacc='sudo pacman -Scc'    # clean cache
 alias paclf='sudo pacman -Ql' # list files
 
+# nixos aliases
+alias os-upgrade='nix-channel --update && nix-env -f "<nixpkgs>" -u && nix-env -f "<home-manager>" -u && home-manager switch && sudo nixos-rebuild switch --upgrade' # full system upgrade
+alias os-clean='sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system && nix-env --delete-generations old && home-manager expire-generations "now" && nix-collect-garbage'
+
 # haxelib aliases
 alias haxel='haxelib install'
 alias haxels='haxelib search'
@@ -151,17 +172,11 @@ alias vim='nvim'
 alias youtube-dla='youtube-dl -x --audio-format vorbis --audio-quality 192'
 alias scrotclip='scrot -s ~/foo.png && xclip ~/foo.png && rm ~/foo.png'
 alias dcmus='screen -q -r -D cmus || screen -S cmus $(which cmus)'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias config='/usr/bin/env git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias la='exa -hg@ --git --icons --color-scale -la'
 
 # opam configuration
 test -r /home/narice/.opam/opam-init/init.zsh && . /home/narice/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
