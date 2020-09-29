@@ -1,0 +1,63 @@
+[Devices][/org/freedesktop/UDisks2/block_devices/sda1]
+Icon=drive-harddisk
+LastNameSeen=EFI system partition
+LastSeenMounted=false
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda3]
+Icon=drive-harddisk
+LastNameSeen=Basic data partition
+LastSeenMounted=false
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda4]
+Icon=drive-harddisk
+LastNameSeen=ArchLinux /
+LastSeenMounted=false
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda5]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=Grub2
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda6]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=Linux SSD
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda7]
+EverMounted=true
+Icon=drive-harddisk-root
+LastNameSeen=NixOS /
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sdb3]
+Icon=drive-harddisk
+LastNameSeen=Windows HDD
+LastSeenMounted=false
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sdb4]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=ArchLinux /home
+LastSeenMounted=false
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sdb5]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=NixOS /home
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sdb6]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=Linux HDD
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sdc1]
+Icon=drive-removable-media-usb
+LastNameSeen=7.4 GiB Removable Media
+LastSeenMounted=false
+
+[General]
+AutomountEnabled=true

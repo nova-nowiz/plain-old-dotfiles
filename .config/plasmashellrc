@@ -1,0 +1,27 @@
+[DownloadDialog Settings]
+Height 1080=472
+Width 1920=700
+
+[PlasmaRunnerManager]
+LaunchCounts=3 services_nemo.desktop,2 services_Alacritty.desktop,1 services_emacs.desktop,1 services_flameshot.desktop,1 baloosearch_/home/narice/hdd/dev/nixpkgs/pkgs/desktops/cinnamon/nemo,1 services_discord.desktop
+
+[PlasmaViews][Panel 2]
+alignment=1
+panelVisibility=1
+
+[PlasmaViews][Panel 2][Defaults]
+maxLength=1920
+minLength=1920
+thickness=30
+
+[PlasmaViews][Panel 2][Horizontal1920]
+maxLength=1920
+minLength=1920
+thickness=30
+
+[ScreenConnectors]
+0=HDMI-A-0
+1=:0.0
+
+[Updates]
+performed=/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js
