@@ -1,0 +1,8 @@
+[Added Associations]
+application/zip=org.kde.dolphin.desktop;
+application/pdf=com.github.xournalpp.xournalpp.desktop;
+application/x-gzip=org.kde.dolphin.desktop;
+
+[Default Applications]
+x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/discord-472164236332630018=discord-472164236332630018.desktop
