@@ -7,6 +7,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # If you come from bash you might have to change your $PATH.
 export PATH="/usr/lib/ccache/bin/:$PATH:/home/narice/.vim/bundle/vim-live-latex-preview/bin/"
